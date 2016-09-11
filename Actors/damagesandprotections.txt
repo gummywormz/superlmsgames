@@ -1,0 +1,275 @@
+//no killing sometimes
+
+//not stolen from sexton hell
+
+actor ProtoShotC : ProtoShot replaces ProtoShot
+{
+States
+{
+Spawn:
+TNT1 A 2
+BUST A 1 A_ChangeFlag("THRUGHOST", 0)
+BUST A 1
+goto spawn+2
+}
+}
+
+actor ProtoShot3C : ProtoShot3 replaces ProtoShot3
+{
+damagetype "Proto3"
+}
+
+//keep this part
+actor DustBit1Cc : DustBit1 replaces DustBit1
+{
+damagetype "Dust"
+}
+
+actor DustBit2Cc : DustBit2 replaces DustBit2
+{
+damagetype "Dust"
+}
+
+actor DustBit3Cc : DustBit3 replaces DustBit3
+{
+damagetype "Dust"
+}
+
+actor DustBit4Cc : DustBit4 replaces DustBit4
+{
+damagetype "Dust"
+}
+//end keep this part
+
+actor TornadoHoldPodC : TornadoHoldPod replaces TornadoHoldPod
+{
+Damagetype "TornadoHold"
+}
+
+actor JunkProjectileC : JunkProjectile replaces JunkProjectile
+{
+damagetype "JunkShield"
+}
+
+actor ThunderClawDamagerC : ThunderClawDamager replaces ThunderClawDamager
+{
+damagetype "ThunderClaw"
+}
+
+actor NoKillingzorz : PowerupGiver
+{
++COUNTITEM
++INVENTORY.AUTOACTIVATE
++INVENTORY.ALWAYSPICKUP
+Inventory.MaxAmount 1
+Powerup.Type "PowerSuperProtection"
+States
+{
+Spawn:
+TNT1 A 1
+Loop
+}
+}
+
+actor NoMonstering : PowerupGiver
+{
++COUNTITEM
++INVENTORY.AUTOACTIVATE
++INVENTORY.ALWAYSPICKUP
+Inventory.MaxAmount 1
+Powerup.Type "PowerConductor"
+States
+{
+Spawn:
+TNT1 A 1
+Loop
+}
+}
+
+actor PowerConductor : PowerProtection
+{
+Powerup.Duration 0x7FFFFFFF
+damagefactor "Met", 0.0
+damagefactor "Nope", 0.0
+}
+
+actor PowerSuperProtection : PowerProtection
+{
+Powerup.Duration 0x7FFFFFFF
+damagefactor "Dummy", 0.0
+damagefactor "ScorchWheel", 0.0
+damagefactor "WaterBalloon", 0.0
+damagefactor "FlameBlast", 0.0
+damagefactor "ScrewCrusher", 0.0
+damagefactor "MagnetMissile", 0.0
+damagefactor "BalladeCracker", 0.0
+damagefactor "Sakugarne", 0.0
+damagefactor "MirrorBuster1", 0.0
+damagefactor "MirrorBuster2", 0.0
+damagefactor "MirrorBuster", 0.0 //consistancy, people!
+damagefactor "DangerWrap", 0.0
+damagefactor "MagnetMissile", 0.0
+damagefactor "NoiseCrush1", 0.0
+damagefactor "NoiseCrush2", 0.0
+damagefactor "Bolt", 0.0
+damagefactor "ThunderBolt", 0.0
+damagefactor "BlizzardAttack", 0.0
+damagefactor "JunkShield", 0.0
+damagefactor "WildCoil", 0.0
+damagefactor "WildCoil2", 0.0
+damagefactor "CentaurFlash", 0.0
+damagefactor "FlashBomb", 0.0
+damagefactor "TornadoHold", 0.0
+damagefactor "IceWave", 0.0
+damagefactor "ThunderClaw", 0.0
+damagefactor "HomingSniper", 0.0
+damagefactor "AstroCrush", 0.0
+damagefactor "FlameSword", 0.0
+damagefactor "FlameSwordSpark", 0.0
+damagefactor "FlameBlast", 0.0
+damagefactor "MegaBall", 0.0
+damagefactor "KnightCrush", 0.0
+damagefactor "ShadowBlade", 0.0
+damagefactor "FlashStopper", 0.0 //this too
+damagefactor "DustCrusher", 0.0
+damagefactor "GeminiLaser", 0.0
+damagefactor "GravityHold", 0.0
+damagefactor "SilverTomahawk", 0.0
+damagefactor "WindStorm", 0.0
+damagefactor "CrystalEye", 0.0
+damagefactor "CrystalEyeBit", 0.0
+damagefactor "MetalBlade", 0.0
+damagefactor "SearchSnake", 0.0
+damagefactor "YamatoSpear", 0.0
+damagefactor "DiveMissile", 0.0
+damagefactor "ChargeKick", 0.0
+damagefactor "TopSpin", 0.0
+damagefactor "FreezeCracker", 0.0
+damagefactor "BubbleLead", 0.0
+damagefactor "DrillBomb", 0.0
+damagefactor "NeedleCannon", 0.0
+damagefactor "SparkShock", 0.0 //why was this changed asdf
+damagefactor "HardKnuckle", 0.0
+damagefactor "QuickBoomerang", 0.0
+damagefactor "HyperBomb", 0.0
+damagefactor "RollingCutter", 0.0
+damagefactor "CrashBomb", 0.0
+damagefactor "SlashClaw", 0.0
+damagefactor "SuperArm", 0.0
+damagefactor "IceSlasher", 0.0
+damagefactor "WeakFire", 0.0
+damagefactor "Atomic", 0.0
+damagefactor "LeafShield", 0.0
+damagefactor "Ballade", 0.0
+damagefactor "Blizzard", 0.0
+damagefactor "ScorchWheel", 0.0
+damagefactor "Centaur", 0.0
+damagefactor "AtomicFire1", 0.0
+damagefactor "AtomicFire2", 0.0
+damagefactor "AtomicFire3", 0.0
+damagefactor "AirShooter", 0.0
+damagefactor "TimeSlow", 0.0
+damagefactor "ThunderBeam", 0.0
+damagefactor "Kick", 0.0
+damagefactor "OilSlider", 0.0
+damagefactor "OilFlame", 0.0
+damagefactor "Crash", 0.0
+damagefactor "Crystal", 0.0
+damagefactor "CrystalBit", 0.0
+damagefactor "Dive", 0.0
+damagefactor "Drill", 0.0
+damagefactor "FireStorm", 0.0
+damagefactor "FireSpin", 0.0
+damagefactor "Flame", 0.0
+damagefactor "Bright", 0.0
+damagefactor "FCrack", 0.0
+damagefactor "FCrack2", 0.0
+damagefactor "Gemini", 0.0
+damagefactor "Gravity", 0.0
+damagefactor "Hard", 0.0
+damagefactor "Ice2", 0.0
+damagefactor "NapalmBomb", 0.0
+damagefactor "GyroAttack", 0.0
+damagefactor "Knight", 0.0
+damagefactor "PowerStone", 0.0
+damagefactor "Magnet", 0.0
+damagefactor "RingBoomerang", 0.0
+damagefactor "Needle", 0.0
+damagefactor "PharaohHold", 0.0
+damagefactor "WeakPharoah", 0.0
+damagefactor "Pharaoh", 0.0
+damagefactor "PharaohShot3", 0.0
+damagefactor "PharaohShot2", 0.0
+damagefactor "PharaohShot1", 0.0
+damagefactor "PharaohShot", 0.0
+damagefactor "WaterWave", 0.0
+damagefactor "Starcrash", 0.0
+damagefactor "StarCrash", 0.0 //consistancy, people!
+damagefactor "PharoahShot1", 0.0
+damagefactor "PharoahShot3", 0.0
+damagefactor "PharoahShot2", 0.0
+damagefactor "Quick", 0.0
+damagefactor "Ring", 0.0
+damagefactor "Cutter", 0.0
+damagefactor "RainFlush", 0.0
+damagefactor "FreezeCrackerBit", 0.0
+damagefactor "Screw", 0.0
+damagefactor "Shock", 0.0
+damagefactor "Thunder", 0.0
+damagefactor "Top", 0.0
+damagefactor "WaterWave", 0.0
+damagefactor "Wind", 0.0
+damagefactor "Yamato", 0.0
+damagefactor "Proto3", 0.0
+damagefactor "Buster", 0.0
+damagefactor "ProtoBuster", 0.0
+damagefactor "Guts", 0.0
+damagefactor "Bomb", 0.0
+damagefactor "Metal", 0.0
+damagefactor "Air", 0.0
+damagefactor "Bubble", 0.0
+damagefactor "Leaf", 0.0
+damagefactor "Snake", 0.0
+damagefactor "Shadow", 0.0
+damagefactor "Rain", 0.0
+damagefactor "Dust", 0.0
+damagefactor "DuoFist1", 0.0
+damagefactor "DuoFist2", 0.0
+damagefactor "DuoFist3", 0.0
+damagefactor "Stone", 0.0
+damagefactor "Gyro", 0.0
+damagefactor "Star", 0.0
+damagefactor "StarCrash", 0.0
+damagefactor "Napalm", 0.0
+damagefactor "Tomahawk", 0.0
+damagefactor "SakuCrush", 0.0
+damagefactor "Burst", 0.0
+
+damagefactor "WaveBurner", 0.0
+damagefactor "WaveBurnerUW", 0.0
+damagefactor "TenguBlade", 0.0
+damagefactor "SpreadDrill", 0.0
+damagefactor "SpreadDrill2", 0.0
+damagefactor "SpreadDrill3", 0.0
+damagefactor "CopyVision", 0.0
+damagefactor "MagicCard", 0.0
+damagefactor "LightningBolt", 0.0
+damagefactor "IceWall", 0.0
+damagefactor "RemoteMine", 0.0
+
+damagefactor "Noise", 0.0
+damagefactor "Falling", 1.0
+damagefactor "Fire", 1.0
+damagefactor "Drowning", 1.0
+damagefactor "Slime", 1.0
+damagefactor "Beam", 1.0
+damagefactor "Met", 1.0
+damagefactor "Simon", 1.0
+damagefactor "Nope", 1.0
+damagefactor "Spiney", 1.0
+damagefactor "Net", 1.0
+
+damagefactor "Jitter", 1.0
+damagefactor "SjasScream", 1.0
+damagefactor "Creeper", 1.0
+}

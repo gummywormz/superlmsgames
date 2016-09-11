@@ -1,0 +1,120 @@
+//health and pickups in lms wut
+
+actor SmallHealthPersistant : RandomSpawner 22229 {
+Dropitem "SmallHealth" 255
+}
+
+actor BigHealthPersistant : RandomSpawner 22230 {
+Dropitem "BigHealth" 255
+}
+
+actor WeaponEnergyPersistant : RandomSpawner 22231 {
+Dropitem "WeaponEnergy" 255
+}
+
+actor BigWeaponEnergyPersistant : RandomSpawner 22232 {
+Dropitem "BigWeaponEnergy" 255
+}
+
+actor TimeStopperPersistant : RandomSpawner 22233 {
+Dropitem "TimeStopperGiver" 255
+}
+
+actor AirShooterPersistant : RandomSpawner 22234 {
+Dropitem "AirShooterWep" 255
+}
+
+actor BlizzardAttackPersistant : RandomSpawner 22235 {
+Dropitem "BlizzardAttackWep" 255
+}
+
+actor EddiePersistant : RandomSpawner 22236 {
+Dropitem "EddieSummon" 255
+}
+
+actor BeatPersistant : RandomSpawner 22237 {
+Dropitem "BeatCall" 255
+}
+
+actor RushJetPersistant : RandomSpawner 22238 {
+Dropitem "RushJet2" 255
+}
+
+actor RushCoilPersistant : RandomSpawner 22239 {
+Dropitem "RushCoil2" 255
+}
+
+actor RocketCrackerPersistant : RandomSpawner 22240 {
+Dropitem "RocketCrackerWep" 255
+}
+
+actor PacPelletPersistant : RandomSpawner 22241 {
+Dropitem "PacPellet" 255
+}
+
+actor WTankPersistant : RandomSpawner 22242 {
+Dropitem "WTank" 255
+}
+
+Actor RushCoil2 : RushCoil Replaces RushCoil
+{
+Inventory.RespawnTics 105
+}
+
+Actor RushJet2 : RushJet Replaces RushJet
+{
+Inventory.RespawnTics 105
+}
+
+Actor BeatCall2 : BeatCall Replaces BeatCall
+{
+Inventory.RespawnTics 105
+}
+
+actor RollingCutterPersistant : RandomSpawner 22243 {
+Dropitem "RollingCutterWep" 255
+}
+
+actor ScrewCrusherPersistant : RandomSpawner 22244 {
+Dropitem "ScrewCrusherWep" 255
+}
+
+actor MetalBladePersistant : RandomSpawner 22245 {
+Dropitem "MetalBladeWep" 255
+}
+
+actor QuickBoomerangPersistant : RandomSpawner 22246 {
+Dropitem "QuickBoomerangWep" 255
+}
+
+actor ThunderClawPersistant : RandomSpawner 22247 {
+Dropitem "ThunderClawWep" 255
+}
+
+actor FlameSwardPersistant : RandomSpawner 22248 {
+Dropitem "FlameSwordWep" 255
+}
+
+actor HyperBombPersistant : RandomSpawner 22249 {
+Dropitem "HyperBombWep" 255
+}
+
+actor NapalmBombPersistant : RandomSpawner 22250 {
+Dropitem "NapalmBombWep" 255
+}
+
+actor DrillBombPersistant : RandomSpawner 22251 {
+Dropitem "DrillBombWep" 255
+}
+
+actor WaterBalloonPersistant : RandomSpawner 22252 {
+Dropitem "WaterBalloonWep" 255
+}
+
+actor CentaurFlashPersistant : RandomSpawner 22253 {
+Dropitem "CentaurFlashWep" 255
+}
+
+actor HealthbonusPersistant : RandomSpawner 22254 {
+Dropitem "HealthBonus" 255
+}

@@ -1,0 +1,778 @@
+// Scripts file for changing colors based on your weapon
+
+BOOL IsATeamGame = 0; 
+
+
+#include "zcommon.acs"
+#library "wcolors"
+
+#DEFINE MEGABUSTER 0
+#DEFINE BUBBLELEAD 1
+#DEFINE LEAFSHIELD 2
+#DEFINE ATOMICFIRE 3
+#DEFINE SHADOWBLADE 4
+#DEFINE NAPALMBOMB 5
+#DEFINE AIRSHOOTER 6
+#DEFINE HYPERBOMB 7
+#DEFINE MAGNETMISSILE 8
+#DEFINE TOPSPIN 9
+#DEFINE NEEDLECANNON 10
+#DEFINE GEMINILASER 11
+#DEFINE SEARCHSNAKE 12
+#DEFINE TIMESTOPPER 13
+#DEFINE SUPERARM 14
+#DEFINE ICESLASHER 15
+#DEFINE THUNDERBEAM 16
+#DEFINE METALBLADE 17
+#DEFINE HARDKNUCKLE 18
+#DEFINE DRILLBOMB 19
+#DEFINE BLIZZARDATTACK 20
+#DEFINE FIRESTORM 21
+#DEFINE QUICKBOOMERANG 22
+#DEFINE CRASHBOMB 23
+#DEFINE CHARGEKICK 24
+#DEFINE ROLLINGCUTTER 25
+#DEFINE SPARKSHOCK 26
+#DEFINE RINGBOOMERANG 27
+#DEFINE GYROATTACK 28
+#DEFINE POWERSTONE 29
+#DEFINE DUSTCRUSHER 30
+#DEFINE PHARAOHSHOT 31
+#DEFINE WATERWAVE 32
+#DEFINE CRYSTALEYE 33
+#DEFINE SKULLBARRIER 34
+#DEFINE FLAMEBLAST 35
+#DEFINE PROTOBUSTER 36
+#DEFINE YAMATOSPEAR 37
+#DEFINE DIVEMISSILE 38
+#DEFINE PLANTBARRIER 39
+#DEFINE SILVERTOMAHAWK 40
+#DEFINE WINDSTORM 41
+#DEFINE KNIGHTCRUSH 42
+#DEFINE STARCRASH 43
+#DEFINE RAINFLUSH 44
+#DEFINE SAKUGARNE 45
+#DEFINE BASSBUSTER 46
+#DEFINE BALLADECRACKER 47
+#DEFINE SCREWCRUSHER 48
+#DEFINE FLASHSTOPPER 49
+#DEFINE GRAVITYHOLD 50
+#DEFINE CENTAURFLASH 51
+#DEFINE MIRRORBUSTER 52
+
+#DEFINE BALLADEREAL 53
+
+#DEFINE ATOMICFIRECRG1 60
+#DEFINE ATOMICFIRECRG2 61
+#DEFINE ATOMICFIRECRG3 62
+
+#DEFINE PROTOCHARGE1 63
+#DEFINE PROTOCHARGE2 64
+
+#DEFINE ENKERCHARGE1 65
+#DEFINE ENKERCHARGE2 66
+
+#DEFINE METALMANREAL 67
+
+#DEFINE BOSSPAIN 68
+
+#DEFINE FREEZECRACKER 54
+#DEFINE NOISECRUSH 55
+#DEFINE THUNDERBOLT 56
+#DEFINE JUNKSHIELD 57
+#DEFINE WILDCOIL 58
+#DEFINE SCORCHWHEEL 59
+#DEFINE SLASHCLAW 69
+#DEFINE DANGERWRAP 70
+
+#DEFINE NOISECRUSHCRG1 71
+#DEFINE NOISECRUSHCRG2 72
+#DEFINE NOISECRUSHCRG3 73
+
+#DEFINE WILDCOILCRG1 74
+#DEFINE WILDCOILCRG2 75
+#DEFINE WILDCOILCRG3 76
+
+#DEFINE SUPERADAPTOR 77
+#DEFINE SUPERADAPTORCRG1 78
+#DEFINE SUPERADAPTORCRG2 79
+#DEFINE SUPERADAPTORCRG3 80
+
+#DEFINE FLAMESWORD 81
+#DEFINE ICEWAVE 82
+#DEFINE THUNDERCLAW 83
+#DEFINE WATERBALLOON 84
+#DEFINE TORNADOHOLD 85
+#DEFINE FLASHBOMB 86
+#DEFINE ASTROCRUSH 87
+#DEFINE HOMINGSNIPER 88
+
+#DEFINE HOMINGCHRG1 89
+#DEFINE HOMINGCHRG2 90
+#DEFINE HOMINGCHRG3 91
+
+#DEFINE MEGACHARGE1 92
+#DEFINE MEGACHARGE2 93
+#DEFINE MEGACHARGE3 94
+
+#DEFINE OILSLIDER 95
+#DEFINE TIMESLOW 96
+
+#DEFINE MEGABALL 100
+
+#DEFINE DUOFIST 101
+#DEFINE DUOCHARGE1 102
+#DEFINE DUOCHARGE2 103
+#DEFINE DUOCHARGE3 104
+
+#DEFINE ICEDEATH 105
+
+#DEFINE LASERCHARGE1 106
+#DEFINE LASERCHARGE2 107
+
+#DEFINE TENGUBLADE 170
+#DEFINE WAVEBURNER 171
+#DEFINE SPREADDRILL 172
+#DEFINE MAGICCARD 173
+#DEFINE REMOTEMINE 174
+#DEFINE COPYVISION 175
+#DEFINE ICEWALL 176
+#DEFINE LIGHTNINGBOLT 177
+#DEFINE TREBLEBOOST 178
+
+//Bass colors
+#DEFINE TENGUBLADEB 179
+#DEFINE WAVEBURNERB 180
+#DEFINE SPREADDRILLB 181
+#DEFINE MAGICCARDB 182
+#DEFINE REMOTEMINEB 183
+#DEFINE COPYVISIONB 184
+#DEFINE ICEWALLB 185
+#DEFINE LIGHTNINGBOLTB 186
+
+
+#DEFINE MAX_WEAPONS 77 //Maximum number of weapons for the following arrays
+
+str weapons_ammo[MAX_WEAPONS][3] = 
+{ //Weapon Name - Weapon Ammo - Weapon Name for Reggae
+{"BubbleLeadWep", "BubbleLeadAmmo", "Bubble Lead"},
+{"ShadowBladeWep", "ShadowBladeAmmo", "Shadow Blade"},
+{"NapalmBombWep", "NapalmBombAmmo", " Napalm Bomb"},
+{"AtomicFireWep", "AtomicFireAmmo", "Atomic Fire"},
+{"LeafShieldWep", "LeafShieldAmmo", "Leaf Shield"},
+{"AirShooterWep", "AirShooterAmmo", "Air Shooter"},
+{"HyperBombWep", "HyperBombAmmo", "Hyper Bomb"},
+{"MagnetMissileWep", "MagnetMissileAmmo", "Magnet Missile"},
+{"TopSpinWep", "TopSpinAmmo", "Top Spin"},
+{"NeedleCannonWep", "NeedleCannonAmmo", "Needle Cannon"},
+
+{"GeminiLaserWep", "GeminiLaserAmmo", "Gemini Laser"},
+{"SearchSnakeWep", "SearchSnakeAmmo", "Search Snake"},
+//{"TimeStopperWep", "TimeStopperAmmo", "Time Stopper"}, //Nope.avi
+{"SuperArmWep", "SuperArmAmmo", "Super Arm"},
+{"IceSlasherWep", "IceSlasherAmmo", "Ice Slasher"},
+{"ThunderBeamWep", "ThunderBeamAmmo", "Thunder Beam"},
+{"MetalBladeWep", "MetalBladeAmmo", "Metal Blade"},
+{"HardKnuckleWep", "HardKnuckleAmmo", "Hard Knuckle"},
+{"DrillBombWep", "DrillBombAmmo", "Drill Bomb"},
+{"BlizzardAttackWep", "BlizzardAttackAmmo", "Blizzard Attack"},
+
+{"FireStormWep", "FireStormAmmo", "Fire Storm"},
+{"QuickBoomerangWep", "QuickBoomerangAmmo", "Quick Boomerang"},
+{"CrashBombWep", "CrashBombAmmo", "Crash Bomb"},
+{"ChargeKickWep", "ChargeKickAmmo", "Charge Kick"},
+{"RollingCutterWep", "RollingCutterAmmo", "Rolling Cutter"},
+{"SparkShockWep", "SparkShockAmmo", "Spark Shock"},
+{"RingBoomerangWep", "RingBoomerangAmmo", "Ring Boomerang"},
+{"GyroAttackWep", "GyroAttackAmmo", "Gyro Attack"},
+{"PowerStoneWep", "PowerStoneAmmo", "Power Stone"},
+{"DustCrusherWep", "DustCrusherAmmo", "Dust Crusher"},
+
+{"PharaohShotWep", "PharaohShotAmmo", "Pharaoh Shot"},
+{"WaterWaveWep", "WaterWaveAmmo", "Water Wave"},
+{"CrystalEyeWep", "CrystalEyeAmmo", "Crystal Eye"},
+{"SkullBarrierWep", "SkullBarrierAmmo", "Skull Barrier"},
+{"FlameBlastWep", "FlameBlastAmmo", "Flame Blast"},
+{"YamatoSpearWep", "YamatoSpearAmmo", "Yamato Spear"},
+{"DiveMissileWep", "DiveMissileAmmo", "Dive Missile"},
+{"PlantBarrierWep", "PlantBarrierAmmo", "Plant Barrier"},
+{"SilverTomahawkWep", "SilverTomahawkAmmo", "Silver Tomahawk"},
+{"WindStormWep", "WindStormAmmo", "Wind Storm"},
+
+{"KnightCrushWep", "KnightCrushAmmo", "Knight Crush"},
+{"StarCrashWep", "StarCrashAmmo", "Star Crash"},
+{"RainFlushWep", "RainFlushAmmo", "Rain Flush"},
+{"SakugarneWep", "SakugarneAmmo", "Sakugarne"},
+{"BalladeCrackerWep", "BalladeCrackerAmmo", "Ballade Cracker"},
+{"ScrewCrusherWep", "ScrewCrusherAmmo", "Screw Crusher"},
+{"FlashStopperWep", "FlashStopperAmmo", "Flash Stopper"},
+{"GravityHoldWep", "GravityHoldAmmo", "Gravity Hold"},
+{"CentaurFlashWep", "CentaurFlashAmmo", "Centaur Flash"},
+{"MirrorBusterWep", "MirrorBusterAmmo", "Mirror Buster"},
+
+{"FreezeCrackerWep", "FreezeCrackerAmmo", "Freeze Cracker"},
+{"NoiseCrushWep", "NoiseCrushAmmo", "Noise Crush"},
+{"WildCoilWep", "WildCoilAmmo", "Wild Coil"},
+{"DangerWrapWep", "DangerWrapAmmo", "Danger Wrap"},
+{"ScorchWheelWep", "ScorchWheelAmmo", "Scorch Wheel"},
+{"JunkShieldWep", "JunkShieldAmmo", "Junk Shield"},
+{"SlashClawWep", "SlashClawAmmo", "Slash Claw"},
+{"ThunderBoltWep", "ThunderBoltAmmo", "Thunder Bolt"},
+{"AstroCrushWep", "AstroCrushAmmo", "Astro Crush"},
+{"FlameSwordWep", "FlameSwordAmmo", "Flame Sword"},
+
+{"ThunderClawWep", "ThunderClawAmmo", "Thunder Claw"},
+{"HomingSniperWep", "HomingSniperAmmo", "Homing Sniper"},
+{"WaterBalloonWep", "WaterBalloonAmmo", "Water Balloon"},
+{"MegaBallWep", "MegaBallAmmo", "Mega Ball"},
+{"FlashBombWep", "FlashBombAmmo", "Flash Bomb"},
+{"IceWaveWep", "IceWaveAmmo", "Ice Wave"},
+{"TornadoHoldWep", "TornadoHoldAmmo", "Tornado Hold"},
+{"TimeSlowWep", "TimeSlowAmmo", "Time Slow"},
+{"OilSliderWep", "OilSliderAmmo", "Oil Slider"},
+
+{"TenguBladeWep", "TenguBladeAmmo", "Tengu Blade"},
+{"WaveBurnerWep", "WaveBurnerAmmo", "Wave Burner"},
+{"SpreadDrillWep", "SpreadDrillAmmo", "Spread Drill"},
+{"MagicCardWep", "MagicCardAmmo", "Magic Card"},
+{"RemoteMineWep", "RemoteMineAmmo", "Remote Mine"},
+{"CopyVisionWep", "CopyVisionAmmo", "Copy Vision"},
+{"IceWallWep", "IceWallAmmo", "Ice Wall"},
+{"LightningBoltWep", "LightningBoltAmmo", "Lightning Bolt"},
+{"TrebleBoost", "TrebleBoostAmmo", "Treble Boost"} //Can't be stolen, but just in case
+};
+
+int AmmoMax_Modifier[MAX_WEAPONS][2] =
+{ // Maximum ammo for weapon - Modifier.  0 is the same as 1.0
+{28, 0}, //Bubble Lead
+{28, 0}, //Shadow Blade
+{28, 0}, //Napalm Bomb
+{28, 0}, //Atomic Fire
+{28, 0}, //Leaf Shield
+{28, 0}, //Air Shooter
+{28, 0}, //Hyper Bomb
+{28, 0}, //Magnet Missile
+{28, 0}, //Top Spin
+{28, 0}, //Needle Cannon
+
+{28, 0}, //Gemini Laser
+{56, 1.5}, //Search Snake
+//{28, 0}, //Time Stopper
+{28, 0}, //Super Arm
+{28, 0}, //Ice Slasher
+{28, 0}, //Thunder Beam
+{28, 0}, //Metal Blade
+{28, 0}, //Hard Knuckle
+{28, 0}, //Drill Bomb
+{28, 0}, //Blizzard Attack
+
+{28, 0}, //Fire Storm
+{112, 2.0}, //Quick Boomerang
+{28, 0}, //Crash Bomb
+{28, 0}, //Charge Kick
+{28, 0}, //Rolling Cutter
+{28, 0}, //Spark Shock
+{28, 0}, //Ring Boomerang
+{28, 0}, //Gyro Attack
+{28, 0}, //Power Stone
+{28, 0}, //Dust Crusher
+
+{28, 0}, //Pharaoh Shot
+{28, 0}, //Water Wave
+{28, 0}, //Crystal Eye
+{28, 0}, //Skull Barrier
+{28, 0}, //Flame Blast
+{28, 0}, //Yamato Spear
+{28, 0}, //Dive Missile
+{28, 0}, //Plant Barrier
+{28, 0}, //Silver Tomahawk
+{28, 0}, //Wind Storm
+
+{28, 0}, //Knight Crush
+{28, 0}, //Star Crash
+{28, 0}, //Rain Flush
+{28, 0}, //Sakugarne
+{28, 0}, //Ballade Cracker
+{112, 2.0}, //Screw Crusher
+{28, 0}, //Flash Stopper
+{28, 0}, //Gravity Hold
+{28, 0}, //Centaur Flash
+{28, 0}, //Mirror Buster
+
+{28, 0}, //Freeze Cracker
+{28, 0}, //Noise Crush
+{28, 0}, //Wild Coil
+{28, 0}, //Danger Wrap
+{28, 0}, //Scorch Wheel
+{28, 0}, //Junk Shield
+{28, 0}, //Slash Claw
+{28, 0}, //Thunder Bolt
+{30, 0}, //Astro Crush
+{28, 0}, //Flame Sword
+
+{28, 0}, //Thunder Claw
+{28, 0}, //Homing Sniper
+{42, 0}, //Water Balloon
+{28, 0}, //Mega Ball
+{28, 0}, //Flash Bomb
+{28, 0}, //Ice Wave
+{28, 0}, //Tornado Hold
+{48, 1.5}, //Time Slow
+{28, 0}, //Oil Slider
+
+{28, 0}, //Tengu Blade
+{56, 1.5}, //Wave Burner
+{28, 0}, //Spread Drill
+{28, 0}, //Magic Card
+{28, 0}, //Remote Mine
+{28, 0}, //Copy Vision
+{28, 0}, //Ice Wall
+{28, 0}, //Lightning Bolt
+{28, 0.75} //TrebleBoost
+};
+
+//Color Translation script
+script 998 (int weap, int nosound) 
+{
+if(nosound==0){LocalAmbientSound("menu/cursor",127);} //Play weapon switch noise
+
+If(IsATeamGame==1) //If this is a team game, set team colors and don't use weapon translations
+	{
+	Switch(PlayerTeam())
+		{
+		Case 0:
+		break;
+		Case 1:
+		Thing_SetTranslation(0, 48);
+		break;
+		Case 2:
+		Thing_SetTranslation(0, 43);
+		break;
+		Case 3:
+		Thing_SetTranslation(0, 47);
+		break;
+		}
+	terminate;
+	}
+Thing_SetTranslation(0, weap);
+}
+
+
+//Weapon Energy color script - "cl_NoEnergyColors true" to disable
+Script 255 ENTER CLIENTSIDE
+{
+If(PlayerIsBot(PlayerNumber())){terminate;} //Since this is pointless for bots
+Delay(10);
+If(GetCvar("cl_NoEnergyColors") == 0){ConsoleCommand("set cl_NoEnergyColors 0");ConsoleCommand("ArchiveCvar cl_NoEnergyColors");}
+If(GetCvar("cl_NoEnergyColors") > 0){ConsoleCommand("ArchiveCvar cl_NoEnergyColors 1");terminate;}
+While(PlayerInGame(ConsolePlayerNumber()))
+	{
+	If(PlayerNumber()!=ConsolePlayerNumber())
+		{
+		SetActivator(ConsolePlayerNumber()+1000);
+		restart;
+		}
+	Thing_SetTranslation(999, -1);
+	Delay(1);
+	}
+}
+
+Script 993 OPEN //Defines translations colors
+{
+If(ACS_ExecuteWithResult(975, 1)==1){IsATeamGame = 1;} // If it's a team game, change the variable.
+
+CreateTranslation (BUBBLELEAD, 192:192=4:4, 198:198=93:93);
+CreateTranslation (LEAFSHIELD, 192:192=4:4, 198:198=110:110);
+CreateTranslation (ATOMICFIRE, 192:192=229:229, 198:198=41:41);
+CreateTranslation (ATOMICFIRECRG1, 192:192=229:229, 198:198=41:41, 0:2=201:201, 3:8=201:201, 243:247=201:201);
+CreateTranslation (ATOMICFIRECRG2, 192:192=229:229, 198:198=193:193, 0:2=37:37, 3:8=37:37, 243:247=37:37);
+CreateTranslation (ATOMICFIRECRG3, 192:192=229:229, 198:198=4:4, 0:2=4:4, 3:8=4:4, 243:247=4:4);
+CreateTranslation (SHADOWBLADE, 192:192=34:34, 198:198=239:239);
+CreateTranslation (NAPALMBOMB, 192:192=216:216, 198:198=75:75);
+CreateTranslation (AIRSHOOTER, 192:192=4:4);
+CreateTranslation (HYPERBOMB, 192:192=4:4, 198:198=110:110);
+CreateTranslation (MAGNETMISSILE, 192:192=87:87, 198:198=227:227);
+CreateTranslation (TOPSPIN, 192:192=52:52, 198:198=93:93);
+CreateTranslation (NEEDLECANNON, 192:192=4:4, 198:198=220:220);
+CreateTranslation (GEMINILASER, 192:192=4:4,198:198=197:197);
+CreateTranslation (SEARCHSNAKE, 192:192=4:4, 198:198=110:110);
+CreateTranslation (TIMESTOPPER, 192:192=34:34, 198:198=239:239);
+CreateTranslation (SUPERARM, 192:192=4:4, 198:198=220:220);
+CreateTranslation (ICESLASHER, 192:192=4:4, 198:198=75:75);
+CreateTranslation (THUNDERBEAM, 192:192=215:215, 198:198=94:94);
+CreateTranslation (METALBLADE, 192:192=210:210, 198:198=164:164);
+CreateTranslation (HARDKNUCKLE, 192:192=87:87, 198:198=199:199);
+CreateTranslation (DRILLBOMB, 192:192=87:87, 198:198=227:227);
+CreateTranslation (BLIZZARDATTACK, 192:192=4:4, 198:198=197:197);
+CreateTranslation (FIRESTORM, 192:192=229:229, 198:198=227:227);
+CreateTranslation (QUICKBOOMERANG, 192:192=34:34, 198:198=39:39);
+CreateTranslation (CRASHBOMB, 192:192=4:4, 198:198=225:225);
+CreateTranslation (CHARGEKICK, 192:192=4:4, 198:198=225:225);
+CreateTranslation (ROLLINGCUTTER, 192:192=4:4, 198:198=94:94);
+CreateTranslation (SPARKSHOCK, 192:192=4:4, 198:198=225:225);
+CreateTranslation (RINGBOOMERANG, 192:192=215:215, 198:198=230:230);
+CreateTranslation (GYROATTACK, 192:192=4:4, 198:198=128:128);
+CreateTranslation (POWERSTONE, 192:192=4:4, 198:198=46:46);
+CreateTranslation (DUSTCRUSHER, 192:192=4:4, 198:198=93:93);
+CreateTranslation (PHARAOHSHOT, 192:192=52:52, 198:198=225:225);
+CreateTranslation (WATERWAVE, 192:192=4:4);
+CreateTranslation (CRYSTALEYE, 192:192=4:4, 198:198=193:193);
+CreateTranslation (SKULLBARRIER, 198:198=197:197);
+CreateTranslation (FLAMEBLAST, 192:192=52:52, 198:198=225:225);
+CreateTranslation (PROTOBUSTER, 192:192=87:87, 198:198=42:42);
+CreateTranslation (PROTOCHARGE1, 192:192=87:87, 198:198=227:227, 0:2=253:253, 3:8=253:253, 243:247=253:253);
+CreateTranslation (PROTOCHARGE2, 192:192=160:160, 198:198=148:148, 0:2=166:166, 3:8=204:166, 243:247=166:166);
+CreateTranslation (YAMATOSPEAR, 192:192=4:4, 198:198=236:236);
+CreateTranslation (DIVEMISSILE, 192:192=4:4);
+CreateTranslation (PLANTBARRIER, 192:192=4:4, 198:198=39:39);
+CreateTranslation (SILVERTOMAHAWK, 192:192=52:52, 198:198=220:220);
+CreateTranslation (WINDSTORM, 192:192=4:4, 198:198=93:93);
+CreateTranslation (KNIGHTCRUSH, 192:192=87:87);
+CreateTranslation (STARCRASH, 192:192=229:229, 198:198=220:220);
+CreateTranslation (RAINFLUSH, 192:192=4:4, 198:198=104:104);
+CreateTranslation (SAKUGARNE, 192:192=138:138, 198:198=130:130);
+CreateTranslation (BASSBUSTER, 192:192=217:217, 198:198=95:95);
+CreateTranslation (BALLADECRACKER, 192:192=64:64, 198:198=62:62);
+CreateTranslation (SCREWCRUSHER, 192:192=54:54, 198:198=42:42);
+CreateTranslation (FLASHSTOPPER, 192:192=4:4, 198:198=239:239);
+CreateTranslation (GRAVITYHOLD, 192:192=4:4, 198:198=239:239);
+CreateTranslation (CENTAURFLASH, 192:192=4:4, 198:198=117:117);
+CreateTranslation (MIRRORBUSTER, 192:192=229:229, 198:198=76:76);
+CreateTranslation (ENKERCHARGE1, 192:192=229:229, 198:198=199:199, 0:2=4:4, 3:8=4:4, 243:247=4:4);
+CreateTranslation (ENKERCHARGE2, 192:192=229:229, 198:198=199:199, 0:2=196:204, 3:8=196:204, 243:247=204:204);
+CreateTranslation (BALLADEREAL, 192:192=228:228, 198:198=62:62);
+CreateTranslation (METALMANREAL, 192:192=228:228, 198:198=41:41);
+CreateTranslation (FREEZECRACKER, 192:192=4:4, 198:198=203:203);
+CreateTranslation (NOISECRUSH, 192:192=204:204, 198:198=61:61);
+CreateTranslation (NOISECRUSHCRG1, 192:192=204:204, 198:198=61:61, 0:2=112:112, 3:8=112:112, 243:247=112:112);
+CreateTranslation (NOISECRUSHCRG2, 192:192=0:0, 198:198=204:204, 0:2=61:61, 3:8=61:61, 243:247=61:61);
+CreateTranslation (NOISECRUSHCRG3, 192:192=61:61, 198:198=0:0, 0:2=204:204, 3:8=204:204, 243:247=204:204);
+CreateTranslation (WILDCOIL, 192:192=109:109, 198:198=238:238);
+CreateTranslation (WILDCOILCRG1, 192:192=109:109, 198:198=238:238, 0:2=41:41, 3:8=41:41, 243:247=41:41);
+CreateTranslation (WILDCOILCRG2, 192:192=0:0, 198:198=109:109, 0:2=238:238, 3:8=238:238, 243:247=238:238);
+CreateTranslation (WILDCOILCRG3, 192:192=238:238, 198:198=0:0, 0:2=109:109, 3:8=109:109, 243:247=109:109);
+CreateTranslation (DANGERWRAP, 192:192=4:4, 198:198=232:232);
+CreateTranslation (SCORCHWHEEL, 192:192=93:93, 198:198=42:42);
+CreateTranslation (JUNKSHIELD, 192:192=68:68, 198:198=94:94);
+CreateTranslation (SLASHCLAW, 192:192=228:228, 198:198=111:111);
+CreateTranslation (THUNDERBOLT, 192:192=228:228, 198:198=73:73);
+CreateTranslation (BOSSPAIN, 5:247=4:4,0:3=4:4);
+CreateTranslation (SUPERADAPTOR, 192:192=4:4, 198:198=176:176);
+CreateTranslation (SUPERADAPTORCRG1, 192:192=4:4, 198:198=176:176, 0:2=22:22, 3:8=22:22, 243:247=22:22);
+CreateTranslation (SUPERADAPTORCRG2, 192:192=0:0, 198:198=176:176, 0:2=4:4, 3:8=4:4, 243:247=4:4);
+CreateTranslation (SUPERADAPTORCRG3, 192:192=4:4, 198:198=0:0, 0:2=176:176, 3:8=176:176, 243:247=176:176);
+CreateTranslation (THUNDERCLAW, 198:198=220:220);
+CreateTranslation (HOMINGSNIPER, 198:198=230:230);
+CreateTranslation (HOMINGCHRG1, 198:198=230:230, 244:247=26:26);
+CreateTranslation (HOMINGCHRG2, 192:192=0:0, 198:198=192:192, 244:247=230:230);
+CreateTranslation (HOMINGCHRG3, 192:192=230:230, 198:198=0:0, 244:247=192:192);
+CreateTranslation (WATERBALLOON, 198:198=62:62);
+CreateTranslation (FLAMESWORD, 192:192=248:248, 198:198=41:41);
+CreateTranslation (ICEWAVE, 192:192=229:229, 198:198=205:205);
+CreateTranslation (TORNADOHOLD, 192:192=236:236, 198:198=194:194);
+CreateTranslation (FLASHBOMB, 192:192=229:229, 198:198=77:77);
+CreateTranslation (ASTROCRUSH, 192:192=229:229, 198:198=128:128);
+CreateTranslation (MEGACHARGE1, 0:2=39:39, 3:8=39:39, 243:247=39:39);
+CreateTranslation (MEGACHARGE2, 192:192=198:198, 198:198=247:247, 0:2=192:192, 243:247=192:192);
+CreateTranslation (MEGACHARGE3, 192:192=247:247, 198:198=192:192, 0:2=198:198, 243:247=198:198);
+CreateTranslation (OILSLIDER, 192:192=68:68, 198:198=47:47);
+CreateTranslation (TIMESLOW, 192:192=34:34, 198:198=239:239);
+CreateTranslation (MEGABALL, 192:192=197:197, 198:198=239:239);
+CreateTranslation (DUOFIST, 192:192=220:220, 198:198=195:195);
+CreateTranslation (DUOCHARGE1, 192:192=220:220, 198:198=195:195, 3:8=192:192, 243:247=192:192);
+CreateTranslation (DUOCHARGE2, 192:192=247:247, 198:198=192:192, 3:8=195:195, 243:247=195:195);
+CreateTranslation (DUOCHARGE3, 192:192=195:195, 198:198=4:4, 3:8=192:192, 243:247=192:192);
+CreateTranslation (ICEDEATH, 192:192=4:4, 198:198=201:201, 3:8=72:72, 243:247=72:72, 208:215=4:4);
+CreateTranslation (LASERCHARGE1, 3:8=70:70, 243:247=70:70);
+CreateTranslation (LASERCHARGE2, 192:192=100:100, 198:198=109:109, 3:8=104:104, 243:247=104:104);
+CreateTranslation (TENGUBLADE, 192:192=208:208, 198:198=93:93);
+CreateTranslation (WAVEBURNER, 192:192=218:218, 198:198=40:40);
+CreateTranslation (SPREADDRILL, 192:192=87:87, 198:198=220:220);
+CreateTranslation (MAGICCARD, 192:192=236:236, 198:198=3:3);
+CreateTranslation (REMOTEMINE, 192:192=41:41, 198:198=3:3);
+CreateTranslation (COPYVISION, 192:192=201:201, 198:198=110:110);
+CreateTranslation (ICEWALL, 192:192=200:200, 198:198=75:75);
+CreateTranslation (LIGHTNINGBOLT, 192:192=93:93, 198:198=229:229);
+CreateTranslation (TREBLEBOOST, 192:192=62:62,  198:198=95:95);
+CreateTranslation (TENGUBLADEB, 192:192=93:93, 198:198=3:3);
+CreateTranslation (WAVEBURNERB, 192:192=204:204, 198:198=132:132);
+CreateTranslation (SPREADDRILLB, 192:192=93:93, 198:198=43:43);
+CreateTranslation (MAGICCARDB, 192:192=111:111, 198:198=166:166);
+CreateTranslation (REMOTEMINEB, 192:192=41:41, 198:198=60:60);
+CreateTranslation (COPYVISIONB, 192:192=59:59, 198:198=3:3);
+CreateTranslation (ICEWALLB, 192:192=197:197, 198:198=3:3);
+CreateTranslation (LIGHTNINGBOLTB, 192:192=217:217, 198:198=59:59);
+
+}
+
+
+Function int WhichWeapon(void) // Which weapon is the player currently using.  From weapons_ammo array
+{
+For(int i = 0; i < MAX_WEAPONS; i++)
+	{
+	If(CheckWeapon(weapons_ammo[i][0]))
+		{
+		Return i;
+		}
+	}
+Return -1;
+}
+
+Function int EnergyBalancer(void) // Finds out which weapon has the lowest ammo ratio wise from the players inventory
+{
+int CurrentRatio;
+int MinRatio = 255.0;
+int LowestWeapon = -1;
+
+For(int w = 0; w < MAX_WEAPONS; w++)
+	{
+	If(CheckInventory(weapons_ammo[w][0]))
+		{
+		CurrentRatio = FixedDiv(CheckInventory(weapons_ammo[w][1]), AmmoMax_Modifier[w][0]);
+		If(CurrentRatio < MinRatio)
+			{
+			MinRatio = CurrentRatio;
+			LowestWeapon = w;
+			}
+		}
+	}
+return LowestWeapon;
+}
+
+Script 992 (int amount, int IsMtank) // Script to determine which weapon to give ammo to
+{
+If(IsMtank == 1) //If this is an mtank, give exactly the ammo of each weapon and terminate
+	{
+	For(int i = 0; i < MAX_WEAPONS; i++)
+		{
+		If(CheckInventory(weapons_ammo[i][0]) == 1)
+			{
+			GiveInventory(weapons_ammo[i][1], AmmoMax_Modifier[i][0]);
+			}
+		}
+	terminate;
+	}
+
+int ThisWeapon = WhichWeapon(); // Which weapon player currently has equipped.
+If(CheckInventory("EnergyBalancerActive"))
+	{
+	If(CheckInventory(weapons_ammo[ThisWeapon][1]) == AmmoMax_Modifier[ThisWeapon][0] || ThisWeapon < 0)  // If player has the Energy Balancer, then check to see if the currently selected weapon is not at maximum
+		{
+		ThisWeapon = EnergyBalancer(); // Finds the lowest ammo weapon using the Energy Balancer function and sets it as the weapon to fill
+		}
+	}
+
+If(ThisWeapon >= 0) //If this weapon is not a buster
+	{
+	If(AmmoMax_Modifier[ThisWeapon][1] > 0){Amount=FixedMul(Amount, AmmoMax_Modifier[ThisWeapon][1]);}
+	GiveInventory(weapons_ammo[ThisWeapon][1], amount);
+	}
+
+}
+
+
+script 984 (void) // Does the player have the energy balancer or a weapon that is not full? If so, pickup ammo
+{
+If(CheckInventory("EnergyBalancerActive")==1){SetResultValue( TRUE );terminate;}
+int ThisWeapon = WhichWeapon();
+If(CheckInventory(weapons_ammo[ThisWeapon][1]) == AmmoMax_Modifier[ThisWeapon][0] || ThisWeapon < 0)
+		{
+		SetResultValue( FALSE );terminate;
+		}
+SetResultValue( TRUE );
+
+}
+
+// Player Color (alternate, no sound)
+//
+script 991 (int weap)
+{
+ACS_ExecuteAlways(998, 0, weap, 1);
+}
+
+// Rotation scripts
+//
+script 990 (int whichrotate) //Deprecated?
+{
+	// Top Spin
+	if(whichrotate==1){
+	SetActorAngle (ActivatorTID(), GetActorAngle (ActivatorTID()) - 0.06);
+	}
+	// Power Stone
+	if(whichrotate==2){
+	SetActorAngle (ActivatorTID(), GetActorAngle (ActivatorTID()) - 0.05);
+	}
+}
+
+
+// Time Stopper HUD FX
+//
+script 986 (void)
+{
+SetHudSize(256,224,0);
+SetFont("FLASHS1");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+SetFont("FLASHS2");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+SetFont("FLASHS3");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+SetFont("FLASHS4");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+SetFont("FLASHS5");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+SetFont("FLASHS6");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+SetFont("FLASHS7");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+SetFont("FLASHS8");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+SetFont("FLASHS9");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+Restart;
+}
+
+
+// LMS Weapon Randomization
+//
+script 981 (void){
+
+}
+
+// A script to generate random numbers for LMS weapons
+//
+
+// Script that is executed everytime a weapon's NoAmmo state is called.
+script 979 (void)
+{
+If(PlayerIsBot(PlayerNumber()))
+	{
+	if(CheckInventory("TimeStopperWep")>0)
+		{
+		TakeInventory("TimeStopperWep",1);
+		GiveInventory("MegaBuster",1);
+		SetWeapon("MegaBuster");
+		}
+	if(CheckInventory("SkullBarrierWep")>0)
+		{
+		TakeInventory("SkullBarrierWep",1);
+		GiveInventory("MegaBuster",1);
+		SetWeapon("MegaBuster");
+		}
+	if(CheckInventory("PlantBarrierWep")>0)
+		{
+		TakeInventory("PlantBarrierWep",1);
+		GiveInventory("MegaBuster",1);
+		SetWeapon("MegaBuster");
+		}
+	SetPlayerProperty(0,1,4);
+	ACS_Execute(992, 0, 255);
+	Delay(15);
+	SetPlayerProperty(0,0,4);
+	}
+}
+
+
+
+// Check Flame Blast for oil in Flame Man's stage
+// (Legacy, needs to be removed eventually)
+script 202 (void) 
+{
+if(CheckActorFloorTexture(0, "FLAMOIL1")){
+ACS_Execute(1,0,0);
+}
+if(CheckActorFloorTexture(0, "FLAMOIL2")){
+ACS_Execute(2,0,0);
+}
+}
+
+// Scorch Wheel speed adjuster (and Instagib)
+//
+script 191 (int speed)
+{
+if(speed==1){
+SetActorProperty(0,APROP_SPEED,1.45);
+}
+if(speed==0){
+SetActorProperty(0,APROP_SPEED,1.0);
+}
+if(speed==3){
+SetActorProperty(0,APROP_SPEED,1.25);
+SetActorProperty(0,APROP_JUMPZ,13.0);
+}
+
+
+
+}
+
+//CMM
+// NOTE it's in WCOLORS because it uses the Energy Balancer weapon script. Feel free to change the script number later (called only by the actor ReggaeEffect)
+
+Script 260 (int AssignTID)
+{
+If(AssignTID == 1)
+	{
+	int ServerMAX = GetCVAR("sv_MaxClients");
+	int Retry=0;
+	For(int a=0; a <= ServerMAX; a++)
+		{
+		If(PlayerInGame(a))
+			{
+			If(CheckActorInventory(a+1000, "ReggaeFlag"))
+				{
+				TakeActorInventory(a+1000, "ReggaeFlag", 1);
+				Thing_ChangeTID(0, a+2064);
+				terminate;
+				}
+			If(a==ServerMAX && Retry < 2)
+				{
+				a=0;
+				Delay(1);
+				Retry++;
+				}
+			}
+		}
+	Thing_Remove(0);
+	}
+str StolenWeapon;
+str StolenName;
+int WeaponSlot;
+
+bool Stolen = false;
+int ReggaeTID = ActivatorTID();
+If(ReggaeTID == 0){terminate;}
+SetActivatorToTarget(0);
+int VictimTID = ActivatorTID();
+If(VictimTID >=1000){GiveActorInventory(VictimTID, "ReggaeBanish", 1);}
+
+WeaponSlot = WhichWeapon();
+Delay(1);
+If(WeaponSlot >= 0)
+	{
+	StolenWeapon = weapons_ammo[WeaponSlot][0];
+	StolenName = weapons_ammo[WeaponSlot][2];
+	If(!(StolenWeapon == "TrebleBoost"))
+		{
+		TakeInventory(StolenWeapon,1);
+		GiveInventory("ResetPlayerStats", 1);
+		Delay(1);
+		GiveActorInventory(ReggaeTID - 1064,StolenWeapon,1);
+		Stolen = TRUE;
+		}
+	}
+
+	LocalAmbientSound("item/reggae",127);
+	
+	SetActivator(ReggaeTID - 1064);
+	SetHudSize(600,380,0);
+	if(Stolen == TRUE){HudMessage(s:"You stole \cc", s:StolenName, s:"\c- from ", n:VictimTID - 999, s:"!";HUDMSG_FADEOUT,2,CR_ORANGE,300.4,50.0,2.0,0.5); terminate;}
+	HudMessage(s:"Couldn't steal a weapon from ", n:VictimTID - 999, s:"!";HUDMSG_FADEOUT,2,CR_ORANGE,300.4,50.0,2.0,0.5);
+}

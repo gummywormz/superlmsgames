@@ -1,0 +1,117 @@
+//inventory flags and junk.
+
+actor UndoLMS : CustomInventory
+{
+inventory.amount 1
+inventory.maxamount 1
+states
+{
+Spawn:
+TNT1 A 1
+stop
+Pickup:
+SKLB G 0 A_ChangeFlag("SHOOTABLE",1)
+SKLB G 1 A_ChangeFlag("DONTRIP",0)
+stop
+}
+}
+
+actor TempNoclip : CustomInventory
+{
+inventory.amount 1
+inventory.maxamount 1
+states
+{
+Spawn:
+TNT1 A 1
+stop
+Pickup:
+SKLB G 1
+SKLB G 0 A_ChangeFlag("SOLID",0)
+stop
+}
+}
+
+actor TempUnNoclip : CustomInventory
+{
+inventory.amount 1
+inventory.maxamount 1
+states
+{
+Spawn:
+TNT1 A 1
+stop
+Pickup:
+SKLB G 1
+SKLB G 0 A_ChangeFlag("SOLID",1)
+stop
+}
+}
+
+actor LMSUnInvincible : CustomInventory
+{
+inventory.amount 1
+inventory.maxamount 1
+states
+{
+Spawn:
+TNT1 A 1
+stop
+Pickup:
+SKLB G 0 A_ChangeFlag("SHOOTABLE",1)
+SKLB G 1 A_ChangeFlag("DONTRIP",0)
+stop
+}
+}
+
+actor LMSForceClear : CustomInventory
+{
+inventory.amount 1
+inventory.maxamount 1
+states
+{
+Spawn:
+TNT1 A 1
+stop
+Pickup:
+SKLB G 0
+SKLB G 1 ACS_ExecuteAlways(665,0,0)
+stop
+}
+}
+
+actor UnMonsterBlock : CustomInventory
+{
+States
+{
+Pickup:
+TNT1 A 1 A_ChangeFlag("NOBLOCKMONST",1)
+stop
+}
+}
+
+actor BotRage: RuneDoubleFiringSpeed
+{
+}
+
+actor BotDoubleDamage : PowerDamage
+{
+damagefactor "Simon", 2
+damagefactor "Normal", 2
+Powerup.Duration 0x7FFFFFFF
+}
+
+actor NoTargetMe : CustomInventory
+{
+inventory.amount 1
+inventory.maxamount 1
+States
+{
+Spawn:
+TNT1 A 1
+stop
+Pickup:
+SKLB G 0 SetPlayerProperty(0,1,1)
+stop
+}
+}
