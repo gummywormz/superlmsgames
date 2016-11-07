@@ -1,0 +1,191 @@
+actor ColorFlag1 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag2 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag3 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag4 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag5 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag6 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag7 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag8 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag9 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag10 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag11 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag12 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag13 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag14 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag15 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag16 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag17 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag18 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag19 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag20 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag21 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag22 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag23 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag24 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag25 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag26 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag27 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag28 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag29 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag30 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag31 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}
+
+actor ColorFlag32 : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 1
+}

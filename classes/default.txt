@@ -1,0 +1,85 @@
+actor SLMSMega : Megaman
+{
+States
+{
+Pain.Veggie:
+PLY1 H 0 HealThing(999)
+PLY1 H 0 A_JumpIfInventory("Veggie1",1,"DropVeggie1")
+PLY1 H 0 A_JumpIfInventory("Veggie2",1,"DropVeggie2")
+PLY1 H 0 A_JumpIfInventory("Veggie3",1,"DropVeggie3")
+PLY1 H 0 A_JumpIfInventory("Veggie4",1,"DropVeggie4")
+PLY1 H 0 A_JumpIfInventory("Veggie5",1,"DropVeggie5")
+PLY1 H 0 A_JumpIfInventory("Veggie6",1,"DropVeggie6")
+PLY1 H 0 A_JumpIfInventory("Veggie7",1,"DropVeggie7")
+PLY1 H 0 A_JumpIfInventory("Veggie8",1,"DropVeggie8")
+PLY1 H 0 A_JumpIfInventory("Veggie9",1,"DropVeggie9")
+PLY1 H 0 A_JumpIfInventory("Veggie10",1,"DropVeggie10")
+PLY1 H 0 A_JumpIfInventory("Veggie11",1,"DropVeggie11")
+goto Pain
+DropVeggie1:
+PLY1 H 0 ACS_ExecuteAlways(544,0)
+PLY1 H 0 A_SpawnItemEx("Veggie1",0,0,32,35,0,0,random(0,360))
+PLY1 H 0 A_TakeInventory("Veggie1",1)
+PLY1 H 0 A_TakeInventory("VeggieFlag",1)
+goto Pain+1
+DropVeggie2:
+PLY1 H 0 ACS_ExecuteAlways(544,0)
+PLY1 H 0 A_SpawnItemEx("Veggie2",0,0,32,35,0,0,random(0,360))
+PLY1 H 0 A_TakeInventory("Veggie2",1)
+PLY1 H 0 A_TakeInventory("VeggieFlag",1)
+goto Pain+1
+DropVeggie3:
+PLY1 H 0 ACS_ExecuteAlways(544,0)
+PLY1 H 0 A_SpawnItemEx("Veggie3",0,0,32,35,0,0,random(0,360))
+PLY1 H 0 A_TakeInventory("Veggie3",1)
+PLY1 H 0 A_TakeInventory("VeggieFlag",1)
+goto Pain+1
+DropVeggie4:
+PLY1 H 0 ACS_ExecuteAlways(544,0)
+PLY1 H 0 A_SpawnItemEx("Veggie4",0,0,32,35,0,0,random(0,360))
+PLY1 H 0 A_TakeInventory("Veggie4",1)
+PLY1 H 0 A_TakeInventory("VeggieFlag",1)
+goto Pain+1
+DropVeggie5:
+PLY1 H 0 ACS_ExecuteAlways(544,0)
+PLY1 H 0 A_SpawnItemEx("Veggie5",0,0,32,35,0,0,random(0,360))
+PLY1 H 0 A_TakeInventory("Veggie5",1)
+PLY1 H 0 A_TakeInventory("VeggieFlag",1)
+goto Pain+1
+DropVeggie6:
+PLY1 H 0 ACS_ExecuteAlways(544,0)
+PLY1 H 0 A_SpawnItemEx("Veggie6",0,0,32,35,0,0,random(0,360))
+PLY1 H 0 A_TakeInventory("Veggie6",1)
+PLY1 H 0 A_TakeInventory("VeggieFlag",1)
+goto Pain+1
+DropVeggie7:
+PLY1 H 0 ACS_ExecuteAlways(544,0)
+PLY1 H 0 A_SpawnItemEx("Veggie7",0,0,32,35,0,0,random(0,360))
+PLY1 H 0 A_TakeInventory("Veggie7",1)
+PLY1 H 0 A_TakeInventory("VeggieFlag",1)
+goto Pain+1
+DropVeggie8:
+PLY1 H 0 ACS_ExecuteAlways(544,0)
+PLY1 H 0 A_SpawnItemEx("Veggie8",0,0,32,35,0,0,random(0,360))
+PLY1 H 0 A_TakeInventory("Veggie8",1)
+PLY1 H 0 A_TakeInventory("VeggieFlag",1)
+goto Pain+1
+DropVeggie9:
+PLY1 H 0 ACS_ExecuteAlways(544,0)
+PLY1 H 0 A_SpawnItemEx("Veggie9",0,0,32,35,0,0,random(0,360))
+PLY1 H 0 A_TakeInventory("Veggie9",1)
+PLY1 H 0 A_TakeInventory("VeggieFlag",1)
+goto Pain+1
+DropVeggie10:
+PLY1 H 0 ACS_ExecuteAlways(544,0)
+PLY1 H 0 A_SpawnItemEx("Veggie10",0,0,32,35,0,0,random(0,360))
+PLY1 H 0 A_TakeInventory("Veggie10",1)
+PLY1 H 0 A_TakeInventory("VeggieFlag",1)
+goto Pain+1
+DropVeggie11:
+PLY1 H 0 A_SpawnItemEx("Veggie11",0,0,32,35,0,0,random(0,360))
+PLY1 H 0 A_TakeInventory("Veggie11",1)
+PLY1 H 0 A_TakeInventory("VeggieFlag",1)
+goto Pain+1
+}
+}

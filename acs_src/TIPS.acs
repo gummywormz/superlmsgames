@@ -1,0 +1,57 @@
+//TIP SYSTEM
+//Stolen from Internal Conflict
+
+#library "Tips"
+#include "zcommon.acs"
+
+#DEFINE TIPCOUNT 37
+
+str Tips[TIPCOUNT] = { 
+
+"In LMS01, the middle platform will drop if no other platforms are colored!",
+"In LMS02, aim behind or below players!",
+"In LMS03, keep your distance at all times.",
+"In LMS04, focus on getting the rings instead of speed.\nIf you have more rings, you can pull ahead later!",
+"In LMS05, watch for different colored yashichis!",
+"In LMS06, always get an item box, even if you have to wait for a respawn.",
+"In LMS07, monsters are your best options as conductor. Focus on killing monsters as a player.",
+"In LMS08, you have a time limit for the first form. Every hit counts!",
+"In LMS09, the projectiles target players. Circle around those with low health!",
+"In LMS09, dodge the fast projectiles by strafing and jumping to throw off the homing.",
+"In LMS10, the torch with no glow is the item.",
+"In LMS10, the emerald is in a fixed location.",
+"In LMS12, watch the counter. Hazards take place instantly!",
+"In LMS13, always fire your melee to extend your range.",
+"In LMS14, stay in front or wait behind to avoid most of the projectiles.",
+"In LMS15, try to get behind people to easily attack them.",
+"In LMS16, don't shoot when the marker is red.",
+"In LMS16, balance your charges. Don't let one get bigger than the other!",
+"In LMS17, watch out for the enemy at the spawn point.",
+"In LMS17, don't stand in the water too long or you'll take damage!",
+"In LMS18, make sure to take as many rings as you can!",
+"In LMS19, hold fire at the start to get a free extra hit.",
+"In LMS20, killing more enemies gets you bonuses.",
+"In LMS20, when you explode, you can kill other enemies.",
+"In LMS21, its better to stay towards the back unless you know the map well.",
+"In LMS22, try to hold the button for a minimal amount of time.",
+"In LMS23, time your fire presses to maintain height.",
+"In LMS24, focus on gathering early on, then attack.",
+"In LMS25, timing is everything.",
+"In LMS26, stay towards the corners to avoid the larger center.",
+"In LMS27, if you're in the middle, you only have to jump once.",
+"In LMS27, if you're at the end, jump twice. Once over the first, then over the second.",
+"In LMS28, continue to capture while the enemy has the weapon while it is distracted.",
+"In LMS29, lead the enemy away as it is on a timer.",
+"In LMS29, get as much health as you can.",
+"In LMS30, keep your distance to avoid attacks easier.",
+"In LMS30, watch for a small projectile. This will explode violently after a bit."
+};
+
+
+script 199 DEATH
+{
+if(getlevelinfo(LEVELINFO_LEVELNUM) == 6666){TERMINATE;}
+SetHudSize(800,600,0);
+SetFont("SMALLFONT");
+hudmessage(s:"PROTIP: ",s:Tips[random(0,TIPCOUNT)]; HUDMSG_FADEINOUT|HUDMSG_LOG, 665, CR_GREEN, 400.0, 585.0, 5.0, 3.5, 1.0);
+}

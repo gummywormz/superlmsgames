@@ -272,4 +272,5 @@ damagefactor "Net", 1.0
 damagefactor "Jitter", 1.0
 damagefactor "SjasScream", 1.0
 damagefactor "Creeper", 1.0
+damagefactor "Veggie",1.0
 }

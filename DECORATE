@@ -1,0 +1,7 @@
+#include Actors/damagesandprotections.txt
+#include Actors/inventorycontrol.txt
+#include Actors/persistance.txt
+
+#include Actors/SLMS02.TXT
+
+#include classes/default.txt

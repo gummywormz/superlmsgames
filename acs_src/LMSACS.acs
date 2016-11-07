@@ -1,0 +1,80 @@
+#include "zcommon.acs"
+#library "lmsacs"
+
+Script 321 OPEN //set up cvars and force certain things on.
+{
+if(GetCvar("SV_NoMonsters") == 1){
+ConsoleCommand("SV_NoMonsters 0");
+}
+if(GetCvar("SV_lmscountdowntime") !=6){
+ConsoleCommand("SV_lmscountdowntime 6");
+}
+if(GetCvar("SV_chasecam") == 0){
+ConsoleCommand("SV_chasecam 1");
+}
+
+if(GetCvar("Winlimit") == 0){
+ConsoleCommand("winlimit 1");
+}
+}
+
+Script 981 (void) //useless lol
+{
+}
+
+script 540 (void) //anticamp
+{
+int i = 0;
+for (i = 0; 0 <= 999; i++)
+{
+delay(1);
+Sector_SetDamage(i,10,MOD_EXIT);
+ChangeFloor(i, "FIRELAV");
+}
+}
+
+script 541 (int whichplayer) //explode players
+{
+GiveActorInventory(whichplayer + 1000,"ISplode2",1);
+}
+
+script 542 (void) //explode ALL players
+{
+ACS_ExecuteAlways(101,0);
+for (int q=1000; q<1033; q++)
+{
+GiveActorInventory(q,"ISplode2",1);
+}
+}
+
+Script 543 ENTER clientside{
+if(GetCvar("chase_dist") <= 359 && GetCvar("LMSGAMES_chaseremind") == 0){
+Print(s:"Your chase_dist is too low. A recommended value is between 360 - 600.");
+SetCVAR("LMSGAMES_chaseremind", 1);
+}
+}
+
+Script 300 (void) //explode player message
+{
+SetFont("BIGFONT");
+HudMessageBold(n:0,s:" is going to explode in 3 seconds!"; HUDMSG_PLAIN, 0, CR_RED, 1.5, 0.0, 0.95);
+AmbientSound("misc/gravitywarn",127);
+Delay(35);
+SetFont("BIGFONT");
+HudMessageBold(n:0,s:" is going to explode in 2 seconds!"; HUDMSG_PLAIN, 0, CR_RED, 1.5, 0.0, 0.95);
+AmbientSound("misc/gravitywarn",127);
+Delay(35);
+SetFont("BIGFONT");
+HudMessageBold(n:0,s:" is going to explode in 1 second!"; HUDMSG_PLAIN, 0, CR_RED, 1.5, 0.0, 0.95);
+AmbientSound("misc/gravitywarn",127);
+Delay(35);
+GiveInventory("ISplode2",1);
+}
+
+//cooking with wily shenanigans
+Script 544 (void)
+{
+GiveInventory("TurnOffPickup",1);
+Delay(35);
+GiveInventory("TurnOnPickup",1);
+}

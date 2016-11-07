@@ -1,0 +1,145 @@
+#include "zcommon.acs"
+#library "PLAYCLR"
+//player colors
+//used to distinguish colors 
+
+Script 599 OPEN
+{
+	CreateTranslation(5000,192:192=229:229, 198:198=41:41);//fire red
+	CreateTranslation(5001,192:192=34:34, 198:198=239:239);//purple
+	CreateTranslation(5002,192:192=4:4);//light blue
+	CreateTranslation(5003,192:192=4:4, 198:198=110:110);//dark green
+	CreateTranslation(5004,192:192=34:34, 198:198=254:254);//purple 2
+	CreateTranslation(5005,192:192=4:4, 198:198=75:75);//ice blue
+	CreateTranslation(5006,192:192=210:210, 198:198=164:164);//metal
+	CreateTranslation(5007,192:192=87:87, 198:198=199:199);//dark blue
+	CreateTranslation(5008,192:192=34:34, 198:198=39:39);//pink 
+	CreateTranslation(5009,192:192=4:4, 198:198=46:46);//brown
+	CreateTranslation(5010,192:192=4:4, 198:198=93:93);//gray
+	CreateTranslation(5011,192:192=4:4, 198:198=193:193);//baby blue
+	CreateTranslation(5012,192:192=4:4, 198:198=236:236);//pink 2
+	CreateTranslation(5013,192:192=229:229, 198:198=220:220);//orange
+	CreateTranslation(5014,192:192=4:4, 198:198=104:104);//light green
+	CreateTranslation(5015,192:192=138:138, 198:198=130:130);//dark green
+	CreateTranslation(5016,192:192=64:64, 198:198=62:62);//deep purple
+	CreateTranslation(5017,192:192=109:109, 198:198=238:238);//tutti fruiti
+	CreateTranslation(5018,192:192=228:228, 198:198=111:111);//green
+	CreateTranslation(5019,192:192=228:228, 198:198=73:73);//dark blue 2
+	CreateTranslation(5020,192:192=236:236, 198:198=194:194);//black
+	CreateTranslation(5021,192:192=68:68, 198:198=47:47);//oil
+	CreateTranslation(5022,192:192=208:208, 198:198=93:93);//light gray
+	CreateTranslation(5023,192:192=4:4, 198:198=39:39);//light pink
+	CreateTranslation(5024,192:192=201:201, 198:198=74:74);//deep blue 2
+	CreateTranslation(5025,192:192=161:161, 198:198=213:213);//popcorn
+	CreateTranslation(5026,192:192=127:127, 198:198=0:0);//black
+	CreateTranslation(5027,192:192=61:61, 198:198=254:254);//deep purple 2
+	CreateTranslation(5028,192:192=160:160, 198:198=162:162);//golden
+	CreateTranslation(5029,192:192=160:160, 198:198=4:4);//eggshell
+	CreateTranslation(5030,198:198=176:176, 192:192=4:4);//rush red
+	CreateTranslation(5031,198:198=251:251, 192:192=107:107);//spike purple
+}
+
+Script 598 ENTER
+{
+Thing_setTranslation(0,playernumber()+5000);
+
+switch(playernumber())
+{
+case 0:
+GiveInventory("ColorFlag1",1);
+break;
+case 1:
+GiveInventory("ColorFlag2",1);
+break;
+case 2:
+GiveInventory("ColorFlag3",1);
+break;
+case 3:
+GiveInventory("ColorFlag4",1);
+break;
+case 4:
+GiveInventory("ColorFlag5",1);
+break;
+case 5:
+GiveInventory("ColorFlag6",1);
+break;
+case 6:
+GiveInventory("ColorFlag7",1);
+break;
+case 7:
+GiveInventory("ColorFlag8",1);
+break;
+case 8:
+GiveInventory("ColorFlag9",1);
+break;
+case 9:
+GiveInventory("ColorFlag10",1);
+break;
+case 10:
+GiveInventory("ColorFlag11",1);
+break;
+case 11:
+GiveInventory("ColorFlag12",1);
+break;
+case 12:
+GiveInventory("ColorFlag13",1);
+break;
+case 13:
+GiveInventory("ColorFlag14",1);
+break;
+case 14:
+GiveInventory("ColorFlag15",1);
+break;
+case 15:
+GiveInventory("ColorFlag16",1);
+break;
+case 16:
+GiveInventory("ColorFlag17",1);
+break;
+case 17:
+GiveInventory("ColorFlag18",1);
+break;
+case 18:
+GiveInventory("ColorFlag19",1);
+break;
+case 19:
+GiveInventory("ColorFlag20",1);
+break;
+case 20:
+GiveInventory("ColorFlag21",1);
+break;
+case 21:
+GiveInventory("ColorFlag22",1);
+break;
+case 22:
+GiveInventory("ColorFlag23",1);
+break;
+case 23:
+GiveInventory("ColorFlag24",1);
+break;
+case 24:
+GiveInventory("ColorFlag25",1);
+break;
+case 25:
+GiveInventory("ColorFlag26",1);
+break;
+case 26:
+GiveInventory("ColorFlag27",1);
+break;
+case 27:
+GiveInventory("ColorFlag28",1);
+break;
+case 28:
+GiveInventory("ColorFlag29",1);
+break;
+case 29:
+GiveInventory("ColorFlag30",1);
+break;
+case 30:
+GiveInventory("ColorFlag31",1);
+break;
+case 31:
+GiveInventory("ColorFlag32",1);
+break;
+}
+}

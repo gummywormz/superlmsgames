@@ -1,0 +1,41 @@
+#library "RAGEQUIT"
+#include "zcommon.acs"
+
+#DEFINE ragequotes 28
+str ragequote[ragequotes] = { 
+" let his tendies hit the floor.",
+" is going to have 0 speed next round.",
+" IS ENRAGED!",
+" got picked as alpha zombie.",
+" is secretly tsuki.",
+" got picked as ninja spy.",
+" is going to play classes saxton quail.",
+" couldn't find the 9th scavenger hunt item.",
+" couldn't handle the proness of this mod.",
+" hates kittens.",
+" went to McDonalds to shove his face in pity fries.",
+" cant win j.",
+" lost j so hard he lost q!",
+" automatically loses the next round.",
+" is become anger!",
+" left to raeg on the forums..",
+" left to play hotel saxton quail.",
+" is not very monster.",
+" is secretly a roleplayer.", // new
+" is fake super sand!", // new
+" is about to leave the community.", // new
+" threw the game, ban", //new
+" should stick to Terraria.", // new
+" left the sandwich on.", // new
+" couldn't hit that last Gyro Man.", // new
+" needs help setting up a server for mega man 9 - 10 weapons.", // new
+" left to guard tim.", // new
+" is going to something.", // new
+};
+
+
+script 699 (int rq) DISCONNECT
+{
+if(getlevelinfo(LEVELINFO_LEVELNUM) == 6666){TERMINATE;}
+hudmessagebold(s:"", n:rq + 1, s:RageQuote[random(0,RAGEQUOTES)]; HUDMSG_FADEINOUT|HUDMSG_LOG, 665, CR_RED, 1.5, -0.8, 2.0, 1.0, 1.0);
+}

@@ -1,0 +1,276 @@
+//Cooking with Wily
+
+
+//this is by far the worst work around for this
+//setactorflag is in **ZDoom** Dev and pain states can reset
+//aaaaaaaaaaaaaaaaaa
+actor TurnOffPickup : CustomInventory
+{
+INVENTORY.AMOUNT 1
+INVENTORY.MAXAMOUNT 1
+States
+{
+Pickup:
+TNT1 A 0 A_ChangeFlag("Pickup",0)
+stop
+}
+}
+
+actor TurnOnPickup : CustomInventory
+{
+INVENTORY.AMOUNT 1
+INVENTORY.MAXAMOUNT 1
+States
+{
+Pickup:
+TNT1 A 0 A_ChangeFlag("Pickup",1)
+stop
+}
+}
+
+//limit the number of veggies you can have
+actor VeggieFlag : Inventory
+{
+INVENTORY.AMOUNT 1
+INVENTORY.MAXAMOUNT 1
+}
+
+//basis for the veggies
+actor VeggieBase : CustomInventory
+{
+INVENTORY.AMOUNT 1
+Scale 2.0
++INVENTORY.QUIET
+inventory.pickupmessage ""
+INVENTORY.MAXAMOUNT 1
+Inventory.Icon "TNT1A0"
++INVBAR
+States
+{
+Spawn:
+TNT1 A -1
+stop
+Pickup:
+TNT1 A 0 A_JumpIfInventory("VeggieFlag",1,"Use")
+TNT1 A 1 A_PlaySoundEx("item/refill","Voice")
+TNT1 A 0 A_GiveInventory("VeggieFlag")
+stop
+Use:
+TNT1 A 0
+fail
+}
+}
+
+actor Veggie1 : VeggieBase
+{
+Inventory.Icon "CWWVA0"
+States
+{
+Spawn:
+CWWV A -1
+stop
+}
+}
+
+actor Veggie2 : VeggieBase
+{
+Inventory.Icon "CWWVB0"
+States
+{
+Spawn:
+CWWV B -1
+stop
+}
+}
+
+actor Veggie3 : VeggieBase
+{
+Inventory.Icon "CWWVC0"
+States
+{
+Spawn:
+CWWV C -1
+stop
+}
+}
+
+actor Veggie4 : VeggieBase
+{
+Inventory.Icon "CWWVD0"
+States
+{
+Spawn:
+CWWV D -1
+stop
+}
+}
+
+actor Veggie5 : VeggieBase
+{
+Inventory.Icon "CWWVE0"
+States
+{
+Spawn:
+CWWV E -1
+stop
+}
+}
+
+actor Veggie6 : VeggieBase
+{
+Inventory.Icon "CWWVF0"
+States
+{
+Spawn:
+CWWV F -1
+stop
+}
+}
+
+actor Veggie7 : VeggieBase
+{
+Inventory.Icon "CWWVG0"
+States
+{
+Spawn:
+CWWV G -1
+stop
+}
+}
+
+actor Veggie8 : VeggieBase
+{
+Inventory.Icon "CWWVH0"
+States
+{
+Spawn:
+CWWV H -1
+stop
+}
+}
+
+actor Veggie9 : VeggieBase
+{
+Inventory.Icon "CWWVI0"
+States
+{
+Spawn:
+CWWV I -1
+stop
+}
+}
+
+actor Veggie10 : VeggieBase
+{
+Inventory.Icon "CWWVJ0"
+States
+{
+Spawn:
+CWWV J -1
+stop
+}
+}
+
+actor Veggie11 : VeggieBase
+{
+Inventory.Icon "CWWVK0"
+States
+{
+Spawn:
+CWWV K -1
+stop
+}
+}
+
+actor VeggieSpawner
+{
+PROJECTILE
+Height 1
+Radius 1
++FIXMAPTHINGPOS
++RIPPER
+Speed 0
+Damage (0)
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 1 A_Jump(256,"Veggie1","Veggie2","Veggie3","Veggie4","Veggie5"
+,"Veggie6","Veggie7","Veggie8","Veggie9","Veggie10","Veggie11")
+stop
+Veggie1:
+TNT1 A 1 A_SpawnItemEx("Veggie1")
+stop
+Veggie2:
+TNT1 A 1 A_SpawnItemEx("Veggie2")
+stop
+Veggie3:
+TNT1 A 1 A_SpawnItemEx("Veggie3")
+stop
+Veggie4:
+TNT1 A 1 A_SpawnItemEx("Veggie4")
+stop
+Veggie5:
+TNT1 A 1 A_SpawnItemEx("Veggie5")
+stop
+Veggie6:
+TNT1 A 1 A_SpawnItemEx("Veggie6")
+stop
+Veggie7:
+TNT1 A 1 A_SpawnItemEx("Veggie7")
+stop
+Veggie8:
+TNT1 A 1 A_SpawnItemEx("Veggie8")
+stop
+Veggie9:
+TNT1 A 1 A_SpawnItemEx("Veggie9")
+stop
+Veggie10:
+TNT1 A 1 A_SpawnItemEx("Veggie10")
+stop
+Veggie11:
+TNT1 A 1 A_SpawnItemEx("Veggie11")
+stop
+}
+}
+
+actor VeggieClaw : SlashClaw
+{
+Damage (1)
+Damagetype "Veggie"
+}
+
+actor VeggieWep : MegaBuster
+{
+Tag "Veggie Claw"
+Weapon.AmmoUse 0
+Weapon.SlotNumber 1
+Obituary "%o had the crap beaten out of %h by %k!"
+Inventory.Pickupmessage "Wat"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Ready:
+SCLA A 0 ACS_ExecuteAlways(998,0,69)
+SCLA A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+SCLA A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+SCLA A 1 A_Raise
+Loop
+Fire:
+SCLA BC 1
+SCLA A 0 A_PlaySoundEx("weapon/slashclaw","Weapon")
+SCLA A 0 A_FireCustomMissile("VeggieClaw",0,0,8,0)
+SCLA DE 2
+SCLA F 4
+SCLA G 20
+SCLA FEDCBA 2 A_WeaponReady
+Goto Ready+1
+}
+}

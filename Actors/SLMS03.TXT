@@ -1,0 +1,23 @@
+//bomber man
+
+actor BomberManBomb
+{
+PROJECTILE
++RIPPER
++FLOORHUGGER
+Damage(0)
+Speed 0
+Obituary "%o was set up the bomb by %k"
+States
+{
+Spawn:
+TNT1 A 0
+BOMB A 15
+BOMB A 1 A_ChangeFlag("SOLID",true)
+BOMB A 35
+BOMB A 35
+BOMB A 0 A_Explode(999999, 180, 0)
+BOMB BCDEFGHIJKLMNOPQR 1
+STOP
+}
+}

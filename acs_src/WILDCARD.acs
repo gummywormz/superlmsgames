@@ -1,0 +1,241 @@
+#INCLUDE "ZCOMMON.ACS"
+#library "wildcard"
+
+int cancelwildcard = 0;
+
+Script 665 OPEN
+{
+if (!random (0, 10)) {acs_execute (666, 0);}
+}
+
+Script 666 (void)
+{
+if(GetCvar("LMSGAMES_DISABLEWILDCARDS") == 1 || getlevelinfo(LEVELINFO_LEVELNUM) == 6666){TERMINATE;}
+int wildchance = random(0,200);
+Delay(35);
+if(wildchance >= 175){terminate;}
+Delay(35 * 8);
+printbold(s:"\clw\cji\chl\cfd \cdc\cna\cmr\cvd \cd activated!");
+Delay(35 * 2);
+wildchance = random(0,10);
+if(wildchance == 0){
+if(getlevelinfo(LEVELINFO_LEVELNUM) == 6026){ACS_ExecuteAlways(670,0,9);Terminate;}
+printbold(s:"U jelly of my wurld?");
+for (int j=0; j<256; J++)
+{Floor_Waggle(j, 350, 138, 0, 0);
+Ceiling_Waggle(j, 450, 138, 0, 0);}
+Delay(35*2);
+for (j=0; j<256; J++)
+{Floor_Waggle(j, 350, 138, 30, 0);
+Ceiling_Waggle(j, 450, 138, 30, 0);}
+}
+if(wildchance == 1){printbold(s:"supah ice soup");
+for (j=0; j<999; J++)
+{sector_setfriction(j,255);
+ChangeFloor(j, "JLAVA5");}
+
+}
+if(wildchance == 2){
+printbold(s:"AIR MAN TILE ATTACKS!");
+Setmusic("LMS_SATM");
+for (j=0; j<999; J++)
+{ChangeCeiling(j,"AIRFLR1");
+ChangeFloor(j, "AIRFLR1");
+setlinetexture(j,SIDE_BACK,TEXTURE_TOP,"AIRFLR1");
+setlinetexture(j,SIDE_BACK,TEXTURE_MIDDLE,"AIRFLR1");
+setlinetexture(j,SIDE_BACK,TEXTURE_BOTTOM,"AIRFLR1");
+setlinetexture(j,SIDE_FRONT,TEXTURE_TOP,"AIRFLR1");
+setlinetexture(j,SIDE_FRONT,TEXTURE_MIDDLE,"AIRFLR1");
+setlinetexture(j,SIDE_FRONT,TEXTURE_BOTTOM,"AIRFLR1");
+}
+}
+if(wildchance == 3){printbold(s:"ROLLING AROUND AT THE SPEED OF SOUND!");
+for (j=1000; j<1033; J++)
+{GIVEACTORINVENTORY(J,"GOLDBOOSTTANK",1);}
+
+}
+if(wildchance == 4){printbold(s:"you are a celebi");
+for (j=1000; j<1033; J++)
+{GIVEACTORINVENTORY(J,"fastspeedxx",1);
+GIVEACTORINVENTORY(J,"ragerune",1);
+}
+}
+if(wildchance == 5){printbold(s:"GOTTA GO FAST! CUZ UR2SLOW!");
+for (j=1000; j<1033; J++)
+{GIVEACTORINVENTORY(J,"fastspeedxxx",1);}
+}
+if(wildchance == 6){printbold(s:"DBZ MODE!");
+for (j=1000; j<1033; J++)
+{GIVEACTORINVENTORY(J,"fastspeedxx",1);
+GIVEACTORINVENTORY(J,"highjumprune",1);}
+ConsoleCommand("sv_aircontrol 0");
+}
+if(wildchance == 7){printbold(s:"saviorsword has logged on to rcon!");
+setmusic("gramus");
+acs_executealways(668,0);
+}
+if(wildchance == 8){printbold(s:"rave time!");
+setmusic("d_rave");
+acs_executealways(669,0);}
+if(wildchance == 9){printbold(s:"nvm");}
+if(wildchance == 10){
+setplayerproperty(1,1,4);
+setplayerproperty(1,1,5);
+Setmusic("d_blank");
+SetFont("BIGFONT");
+HudMessageBold(s:"SHE APPROACHES..."; HUDMSG_TYPEON, 0, CR_BLACK, 1.5, 0.35, 5.0, 0.05, 0.5);
+Delay(35 * 6);
+ConsoleCommand("LMSGAMES_itsmyswampnow 1");
+ConsoleCommand("Changemap lmsxx");
+}
+}
+
+Script 667 UNLOADING
+{
+cancelwildcard=0;
+ConsoleCommand("SV_Aircontrol 0.5");
+ConsoleCommand("sv_gravity 800");
+}
+
+Script 668 (void)
+{
+if(cancelwildcard == 1){for (int q=0; q<999; q++){Sector_SetGravity(q,1,0);} terminate;}
+AmbientSound("misc/gravityup",128);
+for (q=0; q<999; q++){Sector_SetGravity(q,-9000,0);}
+Delay(35 * random(5,10));
+if(cancelwildcard == 1){for (q=0; q<999; q++){Sector_SetGravity(q,1,0);} terminate;}
+AmbientSound("misc/gravitydown",128);
+for (q=0; q<999; q++){Sector_SetGravity(q,9000,0);}
+Delay(35 * random(5,10));
+restart;
+}
+
+Script 669 (void)
+{
+for (int q=0; q<999; q++){Sector_setcolor(q,255,0,0);}
+if(cancelwildcard == 1){for (q=0; q<999; q++){Sector_SetColor(q,255,255,255);
+terminate;}}
+Delay(35);
+for (q=0; q<999; q++){Sector_SetColor(q,255,175,60);}
+if(cancelwildcard == 1){for (q=0; q<999; q++){Sector_SetColor(q,255,255,255);
+terminate;}}
+Delay(35);
+for (q=0; q<999; q++){Sector_SetColor(q,255,255,40);}
+if(cancelwildcard == 1){for (q=0; q<999; q++){Sector_SetColor(q,255,255,255);
+terminate;}}
+Delay(35);
+for (q=0; q<999; q++){Sector_setColor(q,0,255,0);}
+if(cancelwildcard == 1){for (q=0; q<999; q++){Sector_SetColor(q,255,255,255);
+terminate;}}
+Delay(35);
+for (q=0; q<999; q++){Sector_SetColor(q,40,250,200);}
+if(cancelwildcard == 1){for (q=0; q<999; q++){Sector_SetColor(q,255,255,255);
+terminate;}}
+Delay(35);
+for (q=0; q<999; q++){Sector_SetColor(q,70,0,215);}
+if(cancelwildcard == 1){for (q=0; q<999; q++){Sector_SetColor(q,255,255,255);}
+terminate;}
+Delay(35);
+for (q=0; q<999; q++){Sector_SetColor(q,0,0,255);}
+if(cancelwildcard == 1){for (q=0; q<999; q++){Sector_SetColor(q,255,255,255);
+terminate;}}
+Delay(35);
+Restart;
+}
+
+Script 670 (int wildchance)
+{
+if(getlevelinfo(LEVELINFO_LEVELNUM) == 6666){terminate;}
+printbold(s:"\clw\cji\chl\cfd \cdc\cna\cmr\cvd \cd activated!");
+Delay(35 * 2);
+if(wildchance == 0){
+printbold(s:"U jelly of my wurld?");
+for (int j=0; j<256; J++)
+{Floor_Waggle(j, 350, 138, 0, 0);
+Ceiling_Waggle(j, 450, 138, 0, 0);}
+Delay(35*2);
+for (j=0; j<256; J++)
+{Floor_Waggle(j, 350, 138, 30, 0);
+Ceiling_Waggle(j, 450, 138, 30, 0);}
+}
+if(wildchance == 1){printbold(s:"supah ice soup");
+for (j=0; j<999; J++)
+{sector_setfriction(j,255);
+ChangeFloor(j, "JLAVA5");}
+
+}
+if(wildchance == 2){
+printbold(s:"AIR MAN TILE ATTACKS!");
+Setmusic("LMS_SATM");
+for (j=0; j<999; J++)
+{ChangeCeiling(j,"AIRFLR1");
+ChangeFloor(j, "AIRFLR1");
+setlinetexture(j,SIDE_BACK,TEXTURE_TOP,"AIRFLR1");
+setlinetexture(j,SIDE_BACK,TEXTURE_MIDDLE,"AIRFLR1");
+setlinetexture(j,SIDE_BACK,TEXTURE_BOTTOM,"AIRFLR1");
+setlinetexture(j,SIDE_FRONT,TEXTURE_TOP,"AIRFLR1");
+setlinetexture(j,SIDE_FRONT,TEXTURE_MIDDLE,"AIRFLR1");
+setlinetexture(j,SIDE_FRONT,TEXTURE_BOTTOM,"AIRFLR1");
+}
+}
+if(wildchance == 3){printbold(s:"ROLLING AROUND AT THE SPEED OF SOUND!");
+for (j=1000; j<1033; J++)
+{GIVEACTORINVENTORY(J,"GOLDBOOSTTANK",1);}
+
+}
+if(wildchance == 4){printbold(s:"you are a celebi");
+for (j=1000; j<1033; J++)
+{GIVEACTORINVENTORY(J,"fastspeedxx",1);
+GIVEACTORINVENTORY(J,"ragerune",1);
+}
+}
+if(wildchance == 5){printbold(s:"GOTTA GO FAST! CUZ UR2SLOW!");
+for (j=1000; j<1033; J++)
+{GIVEACTORINVENTORY(J,"fastspeedxxx",1);}
+}
+if(wildchance == 6){printbold(s:"DBZ MODE!");
+ConsoleCommand("sv_aircontrol 0");
+for (j=1000; j<1033; J++)
+{GIVEACTORINVENTORY(J,"fastspeedxx",1);
+GIVEACTORINVENTORY(J,"highjumprune",1);}
+}
+if(wildchance == 7){printbold(s:"saviorsword has logged on to rcon!");
+setmusic("gramus");
+acs_executealways(668,0);
+}
+if(wildchance == 8){printbold(s:"rave time!");
+setmusic("d_rave");
+acs_executealways(669,0);}
+if(wildchance == 9){printbold(s:"nvm");}
+if(wildchance == 10){
+setplayerproperty(1,1,4);
+setplayerproperty(1,1,5);
+Setmusic("d_blank");
+SetFont("BIGFONT");
+HudMessageBold(s:"SHE APPROACHES..."; HUDMSG_TYPEON, 0, CR_BLACK, 1.5, 0.35, 5.0, 0.05, 0.5);
+Delay(35 * 6);
+ConsoleCommand("LMSGAMES_itsmyswampnow 1");
+ConsoleCommand("Changemap lmsxx");
+}
+}
+
+Script 671 (void)
+{
+cancelwildcard = 1;
+ConsoleCommand("sv_aircontrol 0.5");
+SetMusic("*");
+for (int j=0; j<999; J++)
+{Floor_Waggle(j, 0, 0, 0, 0);
+Ceiling_Waggle(j, 0, 0, 0, 0);
+sector_setfriction(j,100);
+Sector_setcolor(j,255,255,255);
+Sector_SetGravity(j,1,0);
+}
+for (int q=1000; q<1033; q++)
+{TAKEACTORINVENTORY(q,"GOLDBOOSTTANK",1);
+TAKEACTORINVENTORY(q,"fastspeedxx",1);
+TAKEACTORINVENTORY(q,"highjumprune",1);
+TAKEACTORINVENTORY(q,"fastspeedxxx",1);
+TAKEACTORINVENTORY(q,"ragerune",1);
+}
+}
