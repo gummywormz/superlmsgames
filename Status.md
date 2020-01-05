@@ -30,4 +30,13 @@ Super LMSGames is restarting development on Monday. Two maps are like 60% comple
 
 * Bomber man??
 
-* Mega Man dreams collection
+* Mega Man dreams collection like the sonic feeding eggman minigame. Need ideas for events
+
+* Severe storms where it rains outside and you have to stay inside. Need incentive to go inside other than weapons maybe
+
+* Doggame where you must pet dogs and events occur. Need event ideas.
+
+### Note about open testing
+
+Open testing was mixed last time. People are still tight lipped about feedback but it did help with maps that were immediate failures. 
+On the other hand I felt it took away from the full release of the game as there wasn't enough difference between RC / betas / full release that kept players interested.
